@@ -1,0 +1,46 @@
+<%# <%= tag.article class: 'mb-3 card', id: dom_id(@room) do %> %>
+
+<div class="card-body">
+  <section class="card-text">
+    <div class="row mb-3">
+      <div class="col-md-9">
+        <h4 class="card-title mb-5"><%= room.room_type %></h4>
+        <p class="mt-0 mb-0">Тип кроватей: <%= room.bed_type %></p>
+        <p class="mt-0 mb-0">Гостей: <%= room.number_of_people %></p>
+        <p class="mt-0 mb-0">Тип бронирования: <%= room.booking_type %></p>
+        <p class="mt-0 mb-0">Питание: <%= room.food %></p>
+        <p class="mt-0 mb-0">Дополнительные удобства: <%= room.comforts %></p>
+      </div>
+
+      <div class="col">
+        <h3><%= room.price_per_night %> руб.</h3>
+        <%= link_to 'Show', hotel_room_path(@hotel, room), class: 'btn btn-primary btn-sm' %>
+        <%= link_to 'Edit', edit_hotel_room_path(@hotel, room), class: 'btn btn-warning btn-sm' %>
+        <%= link_to 'Delete', hotel_room_path(@hotel, room), class: 'btn btn-danger btn-sm', data: {method: :delete, confirm: "Are you sure"} %>
+      </div>
+    </div>
+    
+
+
+    <%# <div class="photo-gallery mb-4"> %>
+      <%# <div class="container"> %>
+        <%# <div class="row photos"> %>
+
+          <%# <% if room.images.attached? %> %>
+          <%# <% room.images.each do |image| %> %>
+
+          <%# <div class="col-sm-3 col-md-1 col-lg-2 item"> %>
+            <%# <%= image_tag image, class: 'img-thumbnail' %> %>
+          <%# </div> %>
+          <%# <% end %> %>
+          <%# <% end %> %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+
+  </section>
+
+
+  
+</div>
+<%# <% end %> %>

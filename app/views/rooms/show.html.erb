@@ -1,0 +1,84 @@
+<% provide :page_title, 'Edit room' %>
+<% currently_at 'Hotels' %>
+<%= tag.article class: 'mb-3 card', id: dom_id(@room) do %>
+
+<div class="card-body">
+  <section class="card-text">
+    <p>
+      <%=link_to @hotel.title, hotel_path(@hotel), class: "link-secondary" %> 
+    </p>
+    <h2 class="card-title mb-5"><%= @room.room_type %></h2>
+
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-3">
+            <h3 class="card-title mb-5"><%= @room.price_per_night %> руб.
+            </h3>
+          </div>
+          <div class="col-9">
+            <div class="row">
+              <div class="col-2" style="padding-right: 0;">
+                <p>
+                  <% @hotel.stars.times do %>
+                  <i class="fas fa-star" style="color: #ffc107;"></i>
+                  <% end %>
+                </p>
+              </div>
+              <div class="col-10" style="padding-left: 0;">
+                <p>
+                  <i class="fas fa-thumbs-up"></i>
+                  <%= @hotel.rating %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <%=link_to 'Edit', edit_hotel_room_path(@hotel, @room), class: 'btn btn-warning' %>
+        <%=link_to 'Delete', hotel_room_path(@hotel, @room), class: 'btn btn-danger', data: {method: :delete, confirm: "Are you sure"} %>
+      </div>
+    </div>
+
+    <%# <div class="photo-gallery mb-4"> %>
+      <%# <div class="container"> %>
+        <%# <div class="row photos"> %>
+
+          <%# <% if @room.images.attached? %> %>
+          <%# <% @room.images.each do |image| %> %>
+
+          <%# <div class="col-sm-6 col-md-4 col-lg-3 item"> %>
+            <%# <%= link_to image, data: { lightbox: "room"} do %> %>
+            <%# <%= image_tag image, class: 'img-thumbnail' %> %>
+            <%# <% end %> %>
+          <%# </div> %>
+          <%# <% end %> %>
+          <%# <% end %> %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+
+
+
+<div class="container">
+  <p class="mt-0 mb-0"><b>Bed type: </b><%= @room.bed_type %></p>
+    <p class="mt-0 mb-0"><b>Number of guests: </b><%= @room.number_of_people %></p>
+    <p class="mt-0 mb-0"><b>Food: </b><%= @room.food %></p>
+    <p class="mt-0 mb-0"><b>Comforts: </b><%= @room.comforts %></p>
+    <p class="mt-0 mb-0"><b>Booking type: </b><%= @room.booking_type %></p>
+</div>
+    
+
+
+  </section>
+
+  
+</div>
+<% end %>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>

@@ -1,18 +1,25 @@
+<%# <% provide :page_title, @hotel.title %> %>
+<%# <% currently_at 'Hotels' %> %>
+
 <div class="card my-3">
   <div class="row g-0">
+    <%# <div class="col-md-6 center-block p-2"> %>
+      <%# <% if @hotel.avatar.attached? %> %>
+      <%# <%= image_tag @hotel.avatar, width: "100%" %> %>
+      <%# <% end %> %>
+    <%# </div> %>
     <div class="col-md-6">
       <div class="card-body">
         <h3 class="card-title"><%= sanitize @hotel.title %></h3>
 
-        <% @hotel.stars.times do %>
-        <i class="fas fa-star" style="color: #ffc107;"></i>
-        <% end %>
-        
+        <%# <% @hotel.stars.times do %> %>
+        <%# <i class="fas fa-star" style="color: #ffc107;"></i> %>
+        <%# <% end %> %>
         <p class="card-text">
           <%= sanitize @hotel.address %>
         </p>
         <p class="card-text">
-          <%# <i class="fas fa-thumbs-up"></i> %>
+          <i class="fas fa-thumbs-up"></i>
           <%= @hotel.rating %>
         </p>
         <p class="card-text">
@@ -38,3 +45,15 @@
 
 
 <hr class="my-3">
+
+
+
+<%= render 'shared/errors', object: @room %>
+
+
+<h2 class="mt-5 mb-3">Rooms <%= link_to 'Create room', new_hotel_room_path(@hotel), class: 'btn btn-secondary btn-sm' %></h2>
+<%= render partial: 'rooms/room', collection: @rooms, as: :room, locals: {hotel: @hotel} %>
+
+<%# <%= pagination @pagy %> %>
+<%# <%= render partial: 'rooms/room', collection: @rooms, as: :room, locals: {hotel: @hotel} %> %>
+<%# <%= pagination @pagy %> %>

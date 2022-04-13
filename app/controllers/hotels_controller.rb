@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
 
-  before_action :find_hotel, only: %i[show destroy edit update]
+  before_action :find_hotel!, only: %i[show destroy edit update]
 
   # before_action :authenticate_user!, only: %i[:show, :index]
 
@@ -30,7 +30,8 @@ class HotelsController < ApplicationController
 
 
   def show
-    # @room = @hotel.rooms.build
+    @room = @hotel.rooms.build
+    @rooms = Room.order created_at: :desc
     # @pagy, @rooms = pagy @hotel.rooms.order(created_at: :desc)
     # # @rooms = @hotel.rooms.order(created_at: :desc).page(params[:page]).per(2)
 
@@ -76,7 +77,7 @@ class HotelsController < ApplicationController
   end
 
 
-  def find_hotel
+  def find_hotel!
     @hotel = Hotel.find params[:id]
   end
 end

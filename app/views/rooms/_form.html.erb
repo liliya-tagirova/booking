@@ -1,0 +1,103 @@
+<%= render 'shared/errors', object: @room %>
+<%= form_with model: [@hotel, @room] do |f| %>
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :room_type %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :room_type, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :price_per_night %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :price_per_night, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :bed_type %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :bed_type, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :number_of_people %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :number_of_people, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :booking_type %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :booking_type, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :food %>
+  </div>
+
+  <div class="col-sm-10">
+    <%= f.text_field :food, class: 'form-control' %>
+  </div>
+</div>
+
+
+<%# <div class="mb-3 row"> %>
+  <%# <div class="col-sm-2 col-form-label"> %>
+    <%# <%= f.label :images %> %>
+  <%# </div> %>
+
+  <%# <div class="col-sm-10"> %>
+    <%# <%= f.file_field :images, multiple: true, class: 'form-control' %> %>
+  <%# </div> %>
+<%# </div> %>
+
+
+<%# <div class="photo-gallery mb-4"> %>
+    <%# <div class="container"> %>
+      <%# <div class="row photos"> %>
+
+        <%# <% if @room.images.attached? %> %>
+        <%# <% @room.images.each do |image| %> %>
+
+        <%# <div class="col-sm-4 col-md-3 col-lg-2 item"> %>
+          <%# <%= link_to image, data: { lightbox: "room"} do %> %>
+          <%# <%= image_tag image, class: 'img-thumbnail' %> %>
+          <%# <% end %> %>
+          <%# <%= link_to "Delete image", purge_attachement_path(image), method: :delete %> %>
+        <%# </div> %>
+        <%# <% end %> %>
+        <%# <% end %> %>
+
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+
+
+<%= f.submit "Submit!", class: 'btn btn-primary' %>
+<% end %>
