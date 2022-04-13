@@ -31,9 +31,7 @@ class HotelsController < ApplicationController
 
   def show
     @room = @hotel.rooms.build
-    @rooms = Room.order created_at: :desc
-    # @pagy, @rooms = pagy @hotel.rooms.order(created_at: :desc)
-    # # @rooms = @hotel.rooms.order(created_at: :desc).page(params[:page]).per(2)
+    @pagy, @rooms = pagy @hotel.rooms.order(created_at: :desc)
 
   end
 
@@ -46,10 +44,7 @@ class HotelsController < ApplicationController
 
 
   def index
-    @hotels = Hotel.all
-
-    # @pagy, @hotels = pagy Hotel.all
-    # @hotels = Hotel.all.page params[:page]
+    @pagy, @hotels = pagy Hotel.order created_at: :desc
   end
 
 

@@ -1,5 +1,5 @@
-<%# <% provide :page_title, @hotel.title %> %>
-<%# <% currently_at 'Hotels' %> %>
+<% provide :page_title, @hotel.title %>
+<% currently_at 'Hotels' %>
 
 <div class="card my-3">
   <div class="row g-0">
@@ -52,8 +52,8 @@
 
 
 <h2 class="mt-5 mb-3">Rooms <%= link_to 'Create room', new_hotel_room_path(@hotel), class: 'btn btn-secondary btn-sm' %></h2>
-<%= render partial: 'rooms/room', collection: @rooms, as: :room, locals: {hotel: @hotel} %>
 
-<%# <%= pagination @pagy %> %>
-<%# <%= render partial: 'rooms/room', collection: @rooms, as: :room, locals: {hotel: @hotel} %> %>
-<%# <%= pagination @pagy %> %>
+
+<%= pagination @pagy %>
+<%= render partial: 'rooms/room', collection: @rooms, as: :room, locals: {hotel: @hotel} %>
+<%= pagination @pagy %>

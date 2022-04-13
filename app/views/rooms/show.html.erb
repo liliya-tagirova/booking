@@ -1,5 +1,5 @@
 <% provide :page_title, 'Edit room' %>
-<% currently_at 'Hotels' %>
+<% currently_at 'Rooms' %>
 <%= tag.article class: 'mb-3 card', id: dom_id(@room) do %>
 
 <div class="card-body">
@@ -13,7 +13,7 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-3">
-            <h3 class="card-title mb-5"><%= @room.price_per_night %> руб.
+            <h3 class="card-title mb-5"><%= @room.price_per_night %> $.
             </h3>
           </div>
           <div class="col-9">

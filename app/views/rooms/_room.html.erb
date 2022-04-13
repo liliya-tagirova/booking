@@ -5,15 +5,15 @@
     <div class="row mb-3">
       <div class="col-md-9">
         <h4 class="card-title mb-5"><%= room.room_type %></h4>
-        <p class="mt-0 mb-0">Тип кроватей: <%= room.bed_type %></p>
-        <p class="mt-0 mb-0">Гостей: <%= room.number_of_people %></p>
-        <p class="mt-0 mb-0">Тип бронирования: <%= room.booking_type %></p>
-        <p class="mt-0 mb-0">Питание: <%= room.food %></p>
-        <p class="mt-0 mb-0">Дополнительные удобства: <%= room.comforts %></p>
+        <p class="mt-0 mb-0">Bed type:: <%= room.bed_type %></p>
+        <p class="mt-0 mb-0">Number of guests: <%= room.number_of_people %></p>
+        <p class="mt-0 mb-0">Food: <%= room.food %></p>
+        <p class="mt-0 mb-0">Comforts: <%= room.comforts %></p>
+        <p class="mt-0 mb-0">Booking type: <%= room.booking_type %></p>
       </div>
 
       <div class="col">
-        <h3><%= room.price_per_night %> руб.</h3>
+        <h3><%= room.price_per_night %> $</h3>
         <%= link_to 'Show', hotel_room_path(@hotel, room), class: 'btn btn-primary btn-sm' %>
         <%= link_to 'Edit', edit_hotel_room_path(@hotel, room), class: 'btn btn-warning btn-sm' %>
         <%= link_to 'Delete', hotel_room_path(@hotel, room), class: 'btn btn-danger btn-sm', data: {method: :delete, confirm: "Are you sure"} %>
