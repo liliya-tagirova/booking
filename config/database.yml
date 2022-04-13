@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  database: booking_db
+  pool: 5
+  timeout: 5000
+  user: postgres
+test:
+  adapter: postgresql
+  database: test_booking_db
+  pool: 5
+  timeout: 5000
+  user: postgres
+production:
+  adapter: postgresql
+  database: prod_booking_db
+  pool: 5
+  timeout: 5000
+  user: postgres
