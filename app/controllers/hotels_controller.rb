@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
 
-  before_action :find_hotel!, only: %i[show destroy edit update]
+  before_action :find_hotel, only: %i[show destroy edit update]
 
   # before_action :authenticate_user!, only: %i[:show, :index]
 
@@ -76,7 +76,7 @@ class HotelsController < ApplicationController
   end
 
 
-  def find_hotel!
+  def find_hotel
     @hotel = Hotel.find params[:id]
   end
 end

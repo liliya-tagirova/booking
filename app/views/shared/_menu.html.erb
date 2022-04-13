@@ -1,0 +1,54 @@
+<%= provide :main_menu do %>
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <%= link_to 'All hotels', root_path, class: 'navbar-brand' %>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+
+          <% if user_signed_in? %>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Здравствуйте, <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <%= link_to 'Edit profile', edit_user_registration_path,
+              class: 'dropdown-item' %>
+
+              <div class="dropdown-divider"></div>
+
+              <%= link_to 'Log out', destroy_user_session_path, :method => :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+
+          <% else %>
+
+          <li><%= nav_tab 'Sign in', new_user_registration_path, class: 'nav-link px-2' %>
+          </li>
+
+          <li><%= nav_tab 'Log in', new_user_session_path, class: 'nav-link px-2' %>
+          </li>
+          <% end %>
+        </ul>
+        
+      </div>
+    </nav>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </div>
+</header>
+<% end %>
