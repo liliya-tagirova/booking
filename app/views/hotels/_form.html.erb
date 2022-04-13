@@ -1,0 +1,71 @@
+<%= form_with model: @hotel do |f| %>
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :title %>
+  </div>
+  <div class="col-sm-10">
+  
+    <%= f.text_field :title, placeholder: 'Title', class: 'form-control' %>
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :stars %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_field :stars, placeholder: 'Stars', class: 'form-control' %>
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :address %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_field :address, placeholder: 'Address', class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :rating %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_field :rating, placeholder: 'Rating', class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :about_hotel %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_area :about_hotel, placeholder: 'About hotel', class: 'form-control' %>
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :services %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_area :services, placeholder: 'Services', class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :contacts %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_field :contacts, placeholder: 'Contacts', class: 'form-control' %>
+  </div>
+</div>
+
+  
+<%= f.submit "Submit!", class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,40 @@
+<div class="card my-3">
+  <div class="row g-0">
+    <div class="col-md-6">
+      <div class="card-body">
+        <h3 class="card-title"><%= sanitize @hotel.title %></h3>
+
+        <% @hotel.stars.times do %>
+        <i class="fas fa-star" style="color: #ffc107;"></i>
+        <% end %>
+        
+        <p class="card-text">
+          <%= sanitize @hotel.address %>
+        </p>
+        <p class="card-text">
+          <%# <i class="fas fa-thumbs-up"></i> %>
+          <%= @hotel.rating %>
+        </p>
+        <p class="card-text">
+          <%= sanitize @hotel.about_hotel %>
+        </p>
+        <p class="card-text">
+          <%= sanitize @hotel.services %>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            <%= sanitize @hotel.contacts %>
+          </small>
+        </p>
+        
+
+        <%= link_to 'Edit', edit_hotel_path(@hotel), class: 'btn btn-warning' %>
+        <%= link_to 'Destroy', hotel_path(@hotel), class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'} %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<hr class="my-3">

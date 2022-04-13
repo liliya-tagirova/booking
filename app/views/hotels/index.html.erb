@@ -1,13 +1,43 @@
-<h1>Hotels </h1>
+<div class="row mb-3">
+  <div class="col-12">
+    <h1>All hotels
+      <%= link_to 'Create', new_hotel_path(@deed), class: 'btn btn-primary btn-sm'%>
+      
+    </h1>
+  </div>
+</div>
 
+
+
+<!-- <%= @hotels.inspect %> -->
 
 <% @hotels.each do |hotel| %>
-
-<h2><%= hotel.title %> </h2>
-<h4><%= hotel.stars %></h4>
-<h4><%= hotel.address %></h4>
-<h4><%= hotel.rating %></h4>
-<h4><%= hotel.about_hotel %></h4>
-<h4><%= hotel.services %></h4>
-
+<div class="card my-3">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= hotel.title %></h5>
+        
+        <p class="card-text">
+          <%# <% hotel.stars.times do %> %>
+          <%# <i class="fas fa-star" style="color: #ffc107;"></i> %>
+          <%# <% end %> %>
+          <%# <i class="fas fa-thumbs-up"></i> %>
+          <%= hotel.rating %>
+        </p>
+        <p class="card-text">
+          <%= truncate strip_tags(hotel.about_hotel), length: 100 %>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            <%= truncate strip_tags(hotel.services), length: 50 %>
+          </small>
+        </p>
+        <%= link_to 'Show', hotel_path(hotel), class: 'btn btn-primary'%>
+        <%= link_to 'Edit', edit_hotel_path(hotel), class: 'btn btn-warning' %>
+        <%= link_to 'Destroy', hotel_path(hotel), class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'} %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
