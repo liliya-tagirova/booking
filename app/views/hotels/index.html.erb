@@ -1,0 +1,13 @@
+<h1>Hotels </h1>
+
+
+<% @hotels.each do |hotel| %>
+
+<h2><%= hotel.title %> </h2>
+<h4><%= hotel.stars %></h4>
+<h4><%= hotel.address %></h4>
+<h4><%= hotel.rating %></h4>
+<h4><%= hotel.about_hotel %></h4>
+<h4><%= hotel.services %></h4>
+
+<% end %>
