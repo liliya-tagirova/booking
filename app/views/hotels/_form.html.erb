@@ -67,6 +67,22 @@
   </div>
 </div>
 
-  
+<div class="mb-3 row">
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :avatar %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.file_field :avatar, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="row mt-4 mb-3" style="width: 500px;">
+  <% if @hotel.avatar.attached? %>
+  <%= image_tag @hotel.avatar %>
+  <%= link_to "Delete image", purge_avatar_hotel_path(@hotel), method: :delete, class: "link-secondary" %>
+<% end %>
+</div>
+
 <%= f.submit "Submit!", class: 'btn btn-primary' %>
 <% end %>

@@ -32,7 +32,6 @@ class RoomsController < ApplicationController
       redirect_to hotel_path(@hotel, anchor: "room-#{@room.id}")
     else
       @pagy, @rooms = pagy @hotel.rooms.order(created_at: :desc)
-      # @rooms = @hotel.rooms.order created_at: :desc
       render :new
     end
   end

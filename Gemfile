@@ -23,6 +23,14 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'pagy', '~> 4.10'
+
+gem 'jquery-rails'
+
+gem 'mini_magick', '~> 4.8'
+
+gem 'lightbox2-rails'
+
+gem 'font-awesome-sass'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

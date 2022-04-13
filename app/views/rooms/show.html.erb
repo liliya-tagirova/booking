@@ -42,23 +42,23 @@
       </div>
     </div>
 
-    <%# <div class="photo-gallery mb-4"> %>
-      <%# <div class="container"> %>
-        <%# <div class="row photos"> %>
+    <div class="photo-gallery mb-4">
+      <div class="container">
+        <div class="row photos">
 
-          <%# <% if @room.images.attached? %> %>
-          <%# <% @room.images.each do |image| %> %>
+          <% if @room.images.attached? %>
+          <% @room.images.each do |image| %>
 
-          <%# <div class="col-sm-6 col-md-4 col-lg-3 item"> %>
-            <%# <%= link_to image, data: { lightbox: "room"} do %> %>
-            <%# <%= image_tag image, class: 'img-thumbnail' %> %>
-            <%# <% end %> %>
-          <%# </div> %>
-          <%# <% end %> %>
-          <%# <% end %> %>
-        <%# </div> %>
-      <%# </div> %>
-    <%# </div> %>
+          <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <%= link_to image, data: { lightbox: "room"} do %>
+            <%= image_tag image, class: 'img-thumbnail' %>
+            <% end %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
 
 

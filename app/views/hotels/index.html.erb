@@ -11,18 +11,15 @@
 </div>
 
 
-
-<!-- <%= @hotels.inspect %> -->
-
 <%= pagination @pagy %>
 <% @hotels.each do |hotel| %>
 <div class="card my-3">
-  <%# <div class="row g-0"> %>
-    <%# <div class="col-md-4 center-block p-2"> %>
-      <%# <% if hotel.avatar.attached? %> %>
-      <%# <%= image_tag hotel.avatar, width: "100%" %> %>
-      <%# <% end %> %>
-    <%# </div> %>
+  <div class="row g-0">
+    <div class="col-md-4 center-block p-2 h-100 d-inline-block">
+      <% if hotel.avatar.attached? %>
+      <%= image_tag hotel.avatar, :style => "width: 100%; height: 300px; object-fit: cover"%>
+      <% end %>
+    </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><%= strip_tags hotel.title %></h5>

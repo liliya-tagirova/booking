@@ -7,12 +7,12 @@ class HotelsController < ApplicationController
   # before_filter :authenticate_user!
 
 
-  # def purge_avatar
-  #   @hotel = Hotel.find params[:id]
-  #   @hotel.avatar.purge
-  #   flash[:success] = "Picture deleted!"
-  #   redirect_back fallback_location: root_path
-  # end
+  def purge_avatar
+    @hotel = Hotel.find params[:id]
+    @hotel.avatar.purge
+    flash[:success] = "Picture deleted!"
+    redirect_back fallback_location: root_path
+  end
 
 
   def edit
