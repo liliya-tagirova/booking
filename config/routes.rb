@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # resources :rooms
 
   delete 'attachements/:id/purge', to: 'attachements#purge', as: 'purge_attachement'
+
+  root 'hotels#index'
 end
