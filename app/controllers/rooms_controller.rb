@@ -6,8 +6,7 @@ class RoomsController < ApplicationController
   before_action :find_room!, only: %i[edit update destroy show]
 
   def update
-    @room = @hotel.rooms.find params[:id]
-    if @room.update room_params
+    if @room.update room_update_params
       flash[:success] = 'Room saved'
       redirect_to hotel_path(@hotel, anchor: dom_id(@room))
     else
@@ -24,7 +23,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = @hotel.rooms.build room_params
+    # current_user.hotels.build hotel_params
+    @room = @hotel.rooms.build room_create_params
     if @room.save
       flash[:success] = 'Room created!'
       redirect_to hotel_path(@hotel, anchor: "room-#{@room.id}")
@@ -47,7 +47,12 @@ class RoomsController < ApplicationController
 
   private
 
-  def room_params
+  def room_create_params
+    params.require(:room).permit(:price_per_night, :room_type, :link_img, :bed_type, :number_of_people, :booking_type,
+                                 :number_of_beds, :food, :comforts, images: []).merge(user_id: current_user.id)
+  end
+
+  def room_update_params
     params.require(:room).permit(:price_per_night, :room_type, :link_img, :bed_type, :number_of_people, :booking_type,
                                  :number_of_beds, :food, :comforts, images: [])
   end

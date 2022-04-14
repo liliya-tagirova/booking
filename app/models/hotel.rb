@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Hotel < ApplicationRecord
+  belongs_to :user
+
   has_one_attached :avatar
 
   has_many :rooms, dependent: :destroy

@@ -15,6 +15,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   # validate :password_complexity
 
+  has_many :hotels, dependent: :destroy
+  has_many :rooms, dependent: :destroy
+
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
     # rubocop:disable Rails/SkipsModelValidations
