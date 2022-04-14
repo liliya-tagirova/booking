@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
   # resources :rooms
 
+  namespace :admin do
+    resources :users, only: %i[index create]
+  end
+
   delete 'attachements/:id/purge', to: 'attachements#purge', as: 'purge_attachement'
 
   root 'hotels#index'
