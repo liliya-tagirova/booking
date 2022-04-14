@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # attr_accessor :old_password
   # has_secure_password validations: false
@@ -15,13 +17,12 @@ class User < ApplicationRecord
 
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
+    # rubocop:disable Rails/SkipsModelValidations
     update_column :remember_token_digest, digest(remember_token)
-
+    # rubocop:enable Rails/SkipsModelValidations
 
     # self.remember_token = SecureRandom.urlsafe_base64
-    # rubocop:disable Rails/SkipsModelValidations
     # update_column :remember_token_digest, digest(remember_token)
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def forget_me
@@ -32,9 +33,9 @@ class User < ApplicationRecord
   end
 
   def remember_token_authenticated?(remember_token)
-    return false unless remember_token_digest.present?
-    BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
+    return false if remember_token_digest.blank?
 
+    BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
 
     # return false if remember_token_digest.blank?
 
@@ -44,11 +45,15 @@ class User < ApplicationRecord
   private
 
   def digest(string)
-    cost = ActiveModel::SecurePassword.
-    
-      min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    cost = if ActiveModel::SecurePassword.
 
-      BCrypt::Password.create(string, cost: cost)
+              min_cost
+             BCrypt::Engine::MIN_COST
+           else
+             BCrypt::Engine.cost
+           end
+
+    BCrypt::Password.create(string, cost: cost)
 
     # cost = if ActiveModel::SecurePassword
     #           .min_cost
@@ -71,9 +76,10 @@ class User < ApplicationRecord
 
   # def password_complexity
   #   # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
-  #   return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
+  #   return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
 
-  #   errors.add :password, 'Complexity requirement not met. Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  #   msg = 'complexity requirement not met. Length should be 8-70 characters and ' \
+  #         'include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  #   errors.add :password, msg
   # end
-
 end
