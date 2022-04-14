@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'valid_email2', '~> 4.0'
+gem 'draper', '~> 4.0'
 
 gem 'pagy', '~> 4.10'
 
